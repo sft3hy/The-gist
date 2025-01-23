@@ -1,0 +1,418 @@
+STATS 210P
+Lecture 2
+Sevan Koko Gulesserian
+University of California, Irvine
+1 / 40
+Simple Linear Regression
+The goal (for now) of a simple linear regression is to assess the
+relationship (if any) between two quantitative variables.
+Measure 2 quantitative variables on each sampled unit (e.g.
+subject, school, car, etc.).
+How strongly, if at all, are they related to each other?
+Given a new unit not in the sample, can we predict the value
+of one of the quantitative variables given the other?
+2 / 40
+Simple Linear Regression
+Example: After receiving a midterm score, how well can we predict
+the ﬁnal average for the course?
+Data: Previous statistics class where both midterm and ﬁnal
+average are observed for each student.
+Let Y= Final average, be the response variable.
+Let X=Midterm score, be the explanatory variable.
+3 / 40
+Simple Linear Regression
+A scatterplot plots each (X,Y) pair for all sampled units (students).
+Scatter plot for the example (more later) . Removed cases that 
+did not do any homework and/or take final exam.  
+ 
+ 100908070605040302010090807060MidtermFinal AverageScatterplot of Final Average vs Midterm
+4 / 40
+Quick Algebra Review
+The equation for a linear line is: Y=0+1X.
+Y is the response variable.
+X is the explanatory variable.
+0is the intercept. It is the value of Y when X=0.
+1is the slope. It is the increases in Y when X increase by 1
+unit.
+5 / 40
+Quick Algebra Review
+An example of a deterministic relationship is the equation that
+converts temperature from celsius (C) to fahrenheit (F) units.
+The equation is: F=32+1:8C.
+To convert a given celsius measurement to fahrenheit, just
+plug in the celsius value in for C.
+When C=0, then F=32+1.8*0=32.
+When C=10, then F=32+1.8*10=50.
+As C increase by 1 unit, then F increase by 1.8 units.
+6 / 40
+Quick Algebra Review
+Plot of the equation F=32+1:8C.
+051015354045505560Converting Celsius to Fahrenheit
+CelsiusFahrenheit
+7 / 40
+Quick Algebra Review
+This has been an example of a deterministic relationship.
+If you know X, then you can obtain the exact value of Y.
+In a statistical relationship, there is variation in the possible
+values of Y for each value of X.
+If you know the value of X, then you can obtain an averageor
+approximate value for Y.
+For example, two students can have the same shoe size (X),
+but have diﬀerent values for their heights (Y).
+Thus, what we can do is for a given value of X, we can only
+predict what Y is going to be, or obtain an average or
+approximate value for Y.
+8 / 40
+Simple Linear Regression
+Some more examples of statistical relationships.
+The yearly income of a worker (Y) and the number of years of
+education obtained (X).
+The height, in inches, of a someone (Y) and the average
+height of their parents (X).
+How far away (in feet) can a driver read a sign (Y) and the
+age of the driver (X).
+9 / 40
+Simple Linear Regression
+Relating two quantitative variables.
+Graph: Create a scatter plot to visually see the relationship.
+Regression equation: To describe the "best" straight line
+through the data, and to predict Y given a value of X.
+Correlation coeﬃcient ( ): Assess the strength and direction
+of the linear relationship.
+10 / 40
+Scatterplot
+1. Create axis’ with the appropriate ranges for X (the
+horizontal axis) and Y (the vertical axis).
+2. Plot a dot for each (X,Y) pair in the data.
+Scatterplot of all 73 individuals, with a line through them  
+ What to notice in a scatterplot: 1. If the average  pattern is linear , 
+curved, random, etc.  
+2. If the trend is a positive 
+association  or a negative 
+association  
+3. How spread out the y-values  
+are at each value of x  (strength of 
+relationship)  
+4. Are there any outliers  – unusual 
+combination of (x,y)?  
+1. Average pattern looks linear  
+2. It’s a positive association  (as x goes up, y goes up, on average)  
+3. Student heights are quite spread out at each average parents’ height  
+4. There are no obvious outliers in the combination of (x,y)  
+11 / 40
+Scatterplot
+What to look for in the scatterplot.
+1. Is the average pattern linear, curved (quadratic), random,
+etc.?
+2. Is the trend of the association positive or negative? In
+general, does Y increase as X increases (positive), or does Y
+decrease and X increases (negative).
+3. How spread out are the Y-values at each value of X (the
+strength of the relationship).
+4. Are there any outliers? E.g. any unusual combinations of
+(X,Y).
+For the scatterplot in the previous slide (someone’s height plotted
+against the average of their parents height), the average pattern
+looks linear, the association is positive, the Y values are fairly spread
+out at each value of X, and there does not seem to be any outliers.
+12 / 40
+Simple Linear Regression
+The true simple linear regression equation that deﬁnes the
+statistical relationship between Y and X in the population is:
+Y=0+1X+"
+The part0+1Xcan be viewed as the model.
+0and1are unknown and will be estimated using only the
+observed data.
+"is the error. When these errors are not all equal to 0, then it
+is not a deterministic relationship between Y and X.
+For example when two people have diﬀerent heights, but have
+the same average height for their parents, then "will capture
+the statistical relationship aspect between X and Y.
+13 / 40
+Simple Linear Regression
+The basic idea of the simple linear regression is to ﬁnd the best
+ﬁtting line that will:
+1.Estimate theaveragevalue of Y at a given value of X.
+2.PredictY when X is known but the true Y is not.
+Theleast squares regression line is the best straight line (linear) for
+the data.
+Notation of the estimated least squares regression line is:
+bY=^0+^1X
+where ^0and^1are the estimated values of the unknown 0and
+1.
+We will denote estimates with the hat notation, b.
+Say A is the population parameter we are interested in. Then
+bAis the estimate we obtain from the sample for the population
+parameter A.
+14 / 40
+Simple Linear Regression
+A regression equation describes how the mean or expectation of the
+response variable relates to speciﬁc values of the predictor
+variable(s).
+The simple linear regression equation describes the mean of
+the response variable as a straight line function of a single
+predictor variable. This could be written as:
+E(YjX) =0+1X
+The simple linear regression population model can be written
+as:
+Y=0+1X+"
+where"is the random error.
+15 / 40
+Simple Linear Regression
+For individuals in the larger population from which the sample has
+been taken, the simple linear population regression model can be
+written as:
+Yi=0+1Xi+"i
+fori=1;2;:::;n.
+Where nis the sample size, Yiis the response value for the i-th
+observation, Xiis the covariate/predictor value for the i-th
+observation, and "iis the error for the i-th observation.
+And we will call the ’s (here we have 0and1) the Beta
+coeﬃcients.
+16 / 40
+Linear Regression Equation
+Continuing the example of someones height (Y) and the average
+height of their parents (X).
+Say the regression equation is (we will learn how to get this
+equation soon enough):
+^Y=16:3+0:809X:
+If X=68 inches, then ^Y=16:3+0:80968=71:3 inches.
+This can be interpreted as the estimate of the average height
+of all people whose parents’ average height is 68 inches.
+Or can be interpreted as the predicted height of someone
+whose parent’s average height is 68 inches.
+17 / 40
+Linear Regression Equation
+Continuing the example of someones height (Y) and the average
+height of their parents (X). Say the regression equation is:
+^Y=16:3+0:809X:
+The interpretation of the intercept 16.3 is as follows. 16.3
+inches is the predicted height of someone whose parents’
+average height is 0.
+The intercept has a meaningful interpretation when X=0 is
+reasonable. In this case, X=0 is not reasonable as that would
+mean the average height of the parent’s is 0 inches.
+An example when X=0 is reasonable is when X is the number
+of years of secondary (beyond high school) education someone
+has. X=0 here means someone did not go to college, which is
+reasonable.
+18 / 40
+Linear Regression Equation
+Slope interpretation.
+The interpretation of the slope 0.809 is as follows:
+When the average height of the parents (X) increases by 1 unit
+(that is to say increases 1 inch), we expectthe height of the
+child to increase 0.809 inches.
+Note: We do NOT say that as X increases that Y willincrease
+by a certain amount, because that would imply a deterministic
+relationship.
+19 / 40
+Linear Regression Equation
+Directly following this interpretation, we can compute the
+expected diﬀerence in heights of someone given a change in
+their parents heights.
+What is the expected change in height of someone whose
+parents’ average height changes/increases by 10 inches?
+If a single unit change in X leads to a 0.809 inch change in the
+predicted Y, then a 10 unit change in X will lead to a
+0.809*10=8.09 inch change in the predicted Y.
+If it was a 8 inch change in X, then the predicted Y will change
+by 8*0.809=6.472.
+20 / 40
+Linear Regression Equation: Residuals
+The linear equation at the population level is:
+Y=0+1X+"=Model+Error
+Therefore we can write the following:
+"=Y (0+1X)
+which is to say Error=Y-Model
+21 / 40
+Linear Regression Equation: Residuals
+At the estimated sample level:
+Y=^0+^1X+e=Predicted value+Residual
+Therefore: Residual= Y Predicted value
+Predicted value is depicted as ^Y.
+Thus: Residual= Y ^Y(e.g. Observed Y Predicted Y).
+Letri(orei) denote the residual for the i-th sampling unit,
+where we have a sample size of n (that is to say i=1,2,3,...,n) .
+ri=Yi ^Yi, the observed value for the i-th sampling unit
+minus it’s predicted value.
+Note that the residuals, r’s are the empirical version of the
+true errors from the population model ".
+22 / 40
+Linear Regression Equation: Residuals
+Return to the example of someone’s height and the average height
+of their parents.
+Suppose someone’s parents average height is 66 inches and the
+person is 69 inches tall.
+Observed data is Y=69 and X=66.
+^Y=16:3+0:80966=69:7. The predicted height for this
+person is 69.7 inches.
+Residual=69-69.7= -0.7 inches (overestimated the height by
+0.7 inches).
+Y=Predicted value+Residual )69=69.7+(-0.7).
+Can do this for each Y observation in the dataset, and thus have n
+many ri’s (for i=1,2,...,n).
+23 / 40
+Simple Linear Regression: Regression Equation
+"Fitting" of a line to the data points:
+The line ^0+^1Xobtained by using the least squares method
+is the best ﬁtting line through the data in the scatterplot.
+What deﬁnes the "best" line is the line that minimizes the
+squared diﬀerences of Y bY=Y (^0+^1X)(so what we
+focus on are the squared residuals, (Y (^0+^1X))2). .
+That is why the term "least squares" is used when describing
+the method used to obtain the linear regression equation,
+because our goal is to minimize the sum of these squared
+residuals across all of our sampling units.
+24 / 40
+Simple Linear Regression: Regression Equation
+Main idea: Minimize how far oﬀ the predicted value of Y is (using the
+regression equation) from the actual Y, across the observations, via what
+is called an objective function .
+Compute the residual for each observation in the dataset
+(Residual=Y ^Yfor all Y in the data).
+Thus we will have ri=Yi bYifor i=1,2,3,...,n.
+The least squares regression line is the unique line that minimizes
+the sum of squared residuals.
+This sum is known as SSE (sum of squared errors) but is also called
+SSR (sum of squared residuals).
+It derives the values for ^0and^1that minimizes the following
+objective function:
+SSE=P
+all dataresiduals2=nP
+i=1r2
+i=nP
+i=1(Yi (0+1Xi))2
+Notationally, (^0;^1) =arg min
+0;1nP
+i=1r2
+i
+25 / 40
+Simple Linear Regression: Regression Equation Estimation
+We need to minimize our objective function (Q) with respect to the
+unknown beta coeﬃcients. That is to say we take partial
+derivatives of the objective function with respect to 0and1, set
+those derivatives to 0, and solve for 0and1respectively:
+26 / 40
+Simple Linear Regression: Regression Equation Estimation
+We will use the notation b0=^0andb1=^1. And we can go as
+far as doing a second partial derivative test to show that the
+solutions to our estimates are minimizers.
+27 / 40
+Simple Linear Regression: Regression Equation
+ILLUSTRATING THE LEAST SQUARES LINE  
+ 
+74 72 70 68 66 64 62 6078
+76
+74
+72
+70
+68
+66
+64
+62
+60AvgParentsHtHeightScatterplot of Height vs Average Parents' Height
+ 
+SSE = 376.9 (average of about 5.16 per person , or about 2.25 inches when take square root) Example 1: This picture shows 
+the residuals for 4 of 
+the individuals. The 
+blue line comes 
+closer to all of the  
+points  than any other 
+line, where “close” is 
+defined by  SSE =  ¦
+valuesallresidual2 
+The black line depicts the residual (shown for 4 observations). The
+blue line (the linear regression line) will minimize the squared sum
+of all these black lines across all of the data points.
+28 / 40
+Simple Linear Regression: Regression Equation
+For this example, SSE = 376.9 (sum of squared
+errors/residuals).
+Given that the dataset contained 73 observations, this means
+that the average squared error per observation was 5.16.
+Taking square root, on average the predicted value of Y was
+oﬀ by 2.25 inches from the true Y.
+29 / 40
+Simple Linear Regression: Regression Equation
+Another example: A study to see if the distance at which a driver
+could read a street sign at night changes with age.
+Data has n=30 observations (X,Y pairs). X=age and
+Y=distance in feet the sign can be read.
+The scatterplot is below.
+EXAMPLE 2: A NEGATIVE ASSOCIATION  
+x A study was done to see if the distance at which drivers 
+could read a highway sign at night changes with age.  
+x Data consist  of n = 30 (x,  y) pairs where x = Age and y = 
+Distance at which the sign could first be read (in feet).  
+ 
+AgeDistance
+90 80 70 60 50 40 30 20 10600
+550
+500
+450
+400
+350
+300Scatterplot of Distance vs Age The regression equation is x y 3 577ˆ   
+Notice negative  slope  
+Ex: 577 – 3(20) = 577 – 60 = 517  Age Pred. distance 20 years 517 feet 50 years 427 feet 80 years 337 feet 
+ Interpretation of slope and intercept?  
+30 / 40
+Simple Linear Regression: Regression Equation
+The estimated linear regression equation is ^Y=577 3X.
+This represents a negative association (look at the sign of the
+slope).
+As age (X) increases by 1 year, the predicted distance the
+person can read the sign decreases by 3 feet.
+For someone who is 50 years old, the predicted distance they
+can read the sign is 577  350=427 feet.
+31 / 40
+Simple Linear Regression: Regression Equation
+The linear regression equation is ^Y=577 3X.
+Given two people who diﬀer in age by 60 years, the predicted
+diﬀerence (in feet) of the distances they can read the sign is
+3*60=180 feet (the older person will be predicted to read the
+sign a distance of 180 feet shorter than the younger person).
+Does the intercept have a reasonable interpretation? No, since
+X is age and a driver being 0 years old is not reasonable.
+32 / 40
+Simple Linear Regression: Regression Equation
+Another example: Predicting ﬁnal average from midterm score.
+Example 3 : Predicting final average from midterm  
+x Relationship is linear, positive association  
+x Regression equation: x y 4744.0 45.46ˆ   (Interpretation?)  
+x For instance, here are predictions for x = 80, 50, 100  
+Midterm = x = 80, predicted avg = 46.45 + 0.4744(80) = 84.4  17.70ˆ,50   y x,  9.93ˆ,100   y x 
+ 100908070605040302010090807060MidtermFinal averageScatterplot of Final average vs Midterm
+Regression equation is ^Y=46:45+0:4744X
+This is a positive association. As midterm score increases, the
+predicted value of the ﬁnal average increase by 0.4744 points.
+Does the intercept have a reasonable interpretation?
+33 / 40
+Simple Linear Regression: Non Linear Scatterplot
+Example of a non-linear relationship.
+34 / 40
+Simple Linear Regression: Non Linear Scatterplot
+Another example of a non-linear relationship.
+35 / 40
+Simple Linear Regression: Non Linear Scatterplot
+Can see that ﬁtting a single linear line will not ﬁt the data
+points well in the previous scatter plot.
+Also, the correlation coeﬃcient does not have any useful
+meaning in these examples (since it measures the degree of
+linear association between X and Y).
+Will present a few extensions that can deal with such type of
+data later on in the course.
+36 / 40
+Simple Linear Regression: Notation
+Notation review.
+37 / 40
+Simple Linear Regression: Notation
+Notation review.
+38 / 40
+Simple Linear Regression: Notation
+Notation review (let ei=ri=Yi ^Yi).
+39 / 40
+Simple Linear Regression: Notation
+Notation review.
+40 / 40
