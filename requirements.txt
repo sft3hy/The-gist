@@ -1,3 +1,5 @@
-streamlit==1.41.1
+openai==1.59.9
+groq==0.15.0
+streamlit-auth0-component==0.1.5
 PyPDF2==3.0.1
 python-pptx==1.0.2
