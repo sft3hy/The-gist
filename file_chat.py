@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 from helpers import extract_text
-from config import DOC_SUMMARY_SYS_PROMPT, ALL_MODELS, OPENAI_MODELS, GROQ_MODELS, AZURE_API_KEY, GOOGLE_MODELS, GOOGLE_API_KEY
+from config import DOC_SUMMARY_SYS_PROMPT, ALL_MODELS, OPENAI_MODELS, GROQ_MODELS, AZURE_API_KEY, GOOGLE_MODELS, GOOGLE_API_KEY, CHUNK_SIZE
 from groq import Groq
 from openai import AzureOpenAI, OpenAI
 
@@ -25,7 +25,7 @@ with col1:
     selected_model = st.selectbox(
                 "Select a Gist creator LLM:",
                 options = ALL_MODELS,
-                index=ALL_MODELS.index("llama-3.3-70b-specdec"),
+                # index=ALL_MODELS.index("llama-3.3-70b-specdec"),
             )
 
 uploaded_files = st.file_uploader(
@@ -44,7 +44,7 @@ if uploaded_files:
             f.write(uploaded_file.getbuffer())
         selected_files.append(file_path)  # Treat uploaded files as selected
 
-with st.expander("Or select uploaded data sources:", expanded=False):
+with st.expander("Or select uploaded documents:", expanded=False):
     files = os.listdir(save_dir)
     for count, file in enumerate(files):
         file_path = os.path.join(save_dir, file)
@@ -91,18 +91,33 @@ def stream_groq(stream):
 
 if temperature and selected_model and create_gist and selected_files:
     for file in selected_files:
-        stream = client.chat.completions.create(
-                model=selected_model,
-                messages=[
-                    {"role": "system", "content": DOC_SUMMARY_SYS_PROMPT},
-                    {"role": "user", "content": extract_text(file)},
-                ],
-                stream=True,
-            )
-        response = ""
-        if selected_model in GROQ_MODELS:
+        pre_existing_summary_path = f"generated_summaries/{file.split('/')[-1]}.txt"
+        if os.path.exists(pre_existing_summary_path):
             with st.chat_message("ai"):
-                response = st.write_stream(stream_groq(stream))
+                response = st.write(open(pre_existing_summary_path).read())
         else:
-            with st.chat_message("ai"):
-                response = st.write_stream(stream)
+            responses = ""
+            text = extract_text(file)
+            chunks = [text]
+            if len(text)/4 > CHUNK_SIZE:
+                chunks = [text[i:i + CHUNK_SIZE] for i in range(0, len(text), CHUNK_SIZE)]
+            for chunk in chunks:
+                stream = client.chat.completions.create(
+                        model=selected_model,
+                        messages=[
+                            {"role": "system", "content": DOC_SUMMARY_SYS_PROMPT},
+                            {"role": "user", "content": chunk},
+                        ],
+                        stream=True,
+                    )
+                response = ""
+                if selected_model in GROQ_MODELS:
+                    with st.chat_message("ai"):
+                        response = st.write_stream(stream_groq(stream))
+                else:
+                    with st.chat_message("ai"):
+                        response = st.write_stream(stream)
+                responses += f"{response}\n"
+            with open(pre_existing_summary_path, 'w') as f:
+                f.write(responses)
+            f.close()

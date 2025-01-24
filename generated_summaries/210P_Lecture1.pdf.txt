@@ -1,0 +1,60 @@
+**Summary of Lecture 1: Statistical Modeling**
+
+**Statistical Modeling Overview**
+
+The lecture begins by introducing statistical modeling, which is used to understand the relationship between variables. Examples of statistical modeling include investigating whether students with higher GPA have a better chance of getting into medical school, and whether financial incentives help volunteers lose weight.
+
+**Statistical vs. Deterministic Models**
+
+Statistical models account for variation in the response given an explanatory variable, whereas deterministic models do not. Statistical models are used when the relationship between variables is not straightforward, but rather influenced by other factors.
+
+**Key Concepts**
+
+* **Population**: all individual units about which we want information
+* **Parameter**: a quantity that applies to the whole population
+* **Sample**: units for which we obtain data
+* **Statistic**: a quantity computed from a sample
+* **Variable**: something we measure on each unit
+
+**Types of Variables**
+
+* **Categorical**: data consists of category names
+* **Quantitative**: data consists of numerical values
+* **Continuous quantitative**: measurements can be any real number
+* **Discrete quantitative**: measurements must be a whole integer value
+
+**Types of Variables: Explanatory and Response**
+
+* **Explanatory variable**: the variable (or variables) that may explain or cause differences in the response variable
+* **Response variable**: the variable of interest that we are trying to model
+
+**Confounding Variables**
+
+* A variable that is associated with the predictor of interest and causally related to the outcome of interest
+* A confounding variable can cause spurious associations between variables
+
+**Types of Studies**
+
+* **Observational study**: researchers observe or question participants about opinions, behaviors, or outcomes
+* **Experimental study**: researchers manipulate something and measure the effect of the manipulation on some outcome of interest
+
+**Types of Studies: Key Concepts**
+
+* **Descriptive statistics**: using numerical and graphical summaries to characterize a data set
+* **Inferential statistics**: using sample information to make conclusions about a population
+* **Model**: used to approximate the population relationship between two (or more) variables
+* **Randomized experiment**: participants are randomly assigned to participate in one condition or another
+
+**Types of Studies: Limitations**
+
+* **Observational study**: we cannot make a cause and effect conclusion, but we can extend results to the population
+* **Experimental study**: we can make a cause and effect conclusion, but we cannot extend results to the population
+
+**Summary**
+
+The lecture covers key concepts in statistical modeling, including types of variables, types of studies, and limitations of each. The main takeaways are:
+
+* Use statistical models when the relationship between variables is not straightforward
+* Consider confounding variables in observational studies
+* Use experimental studies to establish cause and effect relationships
+* Be cautious when generalizing results from observational studies or experimental studies to the population.

@@ -35,14 +35,13 @@ def extract_text(file_path):
         str: Extracted text from the file.
     """
     # Check if the file exists
-    print(file_path)
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"The file {file_path} does not exist.")
     
     # Get the file extension
     file_extension = os.path.splitext(file_path)[1].lower()
 
-    potential_already_extracted = f"text_extractions/{file_path.split('/')[-1]}"
+    potential_already_extracted = f"text_extractions/{file_path.split('/')[-1]}.txt"
     if os.path.exists(potential_already_extracted):
         return open(potential_already_extracted, 'r').read()
     else:
@@ -63,7 +62,7 @@ def extract_text_from_pdf(file_path):
         reader = PdfReader(pdf_file)
         for page in reader.pages:
             text += page.extract_text() + "\n"
-    write_text_to_extractions_folder(text, f"text_extractions/{file_path.split('/')[-1]}")
+    write_text_to_extractions_folder(text, f"text_extractions/{file_path.split('/')[-1]}.txt")
     return text
 
 def extract_text_from_pptx(file_path):
@@ -74,14 +73,14 @@ def extract_text_from_pptx(file_path):
         for shape in slide.shapes:
             if shape.has_text_frame:
                 text += shape.text + "\n"
-    write_text_to_extractions_folder(text, f"text_extractions/{file_path.split('/')[-1]}")
+    write_text_to_extractions_folder(text, f"text_extractions/{file_path.split('/')[-1]}.txt")
     return text
 
 def extract_text_from_txt(file_path):
     """Extract text from a TXT file."""
     with open(file_path, 'r', encoding='utf-8') as txt_file:
         text = txt_file.read()
-        write_text_to_extractions_folder(text, f"text_extractions/{file_path.split('/')[-1]}")
+        write_text_to_extractions_folder(text, f"text_extractions/{file_path.split('/')[-1]}.txt")
         return txt_file.read()
 
 def write_text_to_extractions_folder(text, file_path):
