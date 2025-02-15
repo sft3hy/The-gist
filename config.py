@@ -33,7 +33,7 @@ OPENAI_MODELS = [
 
 
 # ALL_MODELS = OPENAI_MODELS + GOOGLE_MODELS + GROQ_MODELS
-ALL_MODELS=["llama-3.1-8b-instant", "llama3-8b-8192"]
+ALL_MODELS=["llama-3.1-8b-instant", "llama3-8b-8192", "gemma2-9b-it"]
 
 DOC_SUMMARY_SYS_PROMPT = """You are a document summarizer. You will be given a textual representation of a document (PDF, TXT, or PPTX), and you will output a detailed and structured summary of the document."""
 
