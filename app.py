@@ -1,16 +1,18 @@
 import streamlit as st
 from auth0_component import login_button
-from helpers import build_markup_for_logo
 from config import AUTH0_CLIENT_ID, AUTH0_DOMAIN
 
 
-chat = st.Page(
-    "file_chat.py", title="Gist creator", icon=":material/robot_2:"
+gist = st.Page(
+    "Gist_Creator.py", title="Gist Creator", icon=":material/robot_2:"
+)
+about = st.Page(
+    "About.py", title="About", icon=":material/waving_hand:"
 )
 
 pg = st.navigation(
 {
-    "Welcome!": [chat],
+    "": [gist, about],
 }
 )
 pg.run()
@@ -20,7 +22,7 @@ pg.run()
 
 # Use the login button to get user info
 with st.sidebar:
-    st.divider()
+    # st.divider()
     user_info = login_button(AUTH0_CLIENT_ID, domain=AUTH0_DOMAIN)
 
 # Store the user info in session state if it's not None
@@ -31,9 +33,3 @@ if user_info:
 if "user_info" in st.session_state and user_info:
     with st.sidebar:
         st.write(f"Welcome, {user_info['name']}")
-
-
-st.markdown(
-    build_markup_for_logo("resources/logo.png"),
-    unsafe_allow_html=True,
-)
