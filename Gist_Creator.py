@@ -5,6 +5,8 @@ from config import DOC_SUMMARY_SYS_PROMPT, ALL_MODELS, OPENAI_MODELS, GROQ_MODEL
 from groq import Groq
 from openai import AzureOpenAI, OpenAI
 
+st.set_page_config(page_title="Document Summarizer", page_icon=":material/summarize:")
+
 st.title("Create your gist")
 
 save_dir = "user_uploaded_files"
